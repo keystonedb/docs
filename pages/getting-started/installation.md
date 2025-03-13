@@ -1,16 +1,8 @@
 ---
 meta:
-  title: Installation
-  description: Sample page noting how to install KeystoneDB
+  title: Getting Started
+  description: The basics of using Keystone DB
 ---
 
-# Installation
-
-## Install the package
-
-Example installation procedure
-
-```bash
-npm install @keystone-db/keystone-db
-```
+# Getting Started
 

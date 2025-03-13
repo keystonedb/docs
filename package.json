@@ -1,0 +1,44 @@
+{
+  "name": "@keystonedb/docs",
+  "version": "1.0.0",
+  "description": "Documentation for the Keystone Database. Built using 11ty.",
+  "keywords": [
+    "keystonedb",
+    "keystone",
+    "documentation",
+    "database"
+  ],
+  "homepage": "https://github.com/keystonedb/docs#readme",
+  "bugs": {
+    "url": "https://github.com/keystonedb/docs/issues"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keystonedb/docs.git"
+  },
+  "license": "ISC",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx @11ty/eleventy --serve --quiet",
+    "build": "npx @11ty/eleventy ",
+    "deploy": "gh-pages -d _site"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.1-alpha.4",
+    "jsdom": "^26.0.0",
+    "lunr": "^2.3.9",
+    "markdown-it": "^14.1.0",
+    "markdown-it-container": "^4.0.0",
+    "markdown-it-ins": "^4.0.0",
+    "markdown-it-kbd": "^2.2.2",
+    "markdown-it-mark": "^4.0.0",
+    "markdown-it-replace-it": "^1.0.0"
+  },
+  "dependencies": {
+    "@11ty/font-awesome": "^1.0.0-beta.1"
+  }
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  data-layout="{{ layout }}">
+<head>
+  {# Metadata #}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ meta.description }}">
+  <title>{{ meta.title }}</title>
+
+  {# Twitter Card #}
+
+  {# OpenGraph #}
+
+  {# Stylesheets #}
+  <link rel="stylesheet" href="{{ assetUrl('styles/theme.css') }}"/>
+  <link rel="stylesheet" href="{{ assetUrl('styles/docs.css') }}"/>
+  <link rel="stylesheet" href="{{ assetUrl('styles/search.css') }}"/>
+
+  {# Scripts #}
+  <script src="{{ assetUrl('scripts/docs.js') }}" defer></script>
+  <script src="{{ assetUrl('scripts/lunr.js') }}" defer></script>
+  <script src="{{ assetUrl('scripts/search.js') }}"></script>
+</head>
+<body>
+{# Skip to content - Screen Readers #}
+<a id="skip-to-main" class="visually-hidden" href="#main-content" data-smooth-link="false">
+  Skip to main content
+</a>
+
+{# Menu toggle #}
+<button id="menu-toggle" type="button" aria-label="Menu">
+  <i class="fa-solid fa-bars"></i>
+</button>
+
+{# Sidebar #}
+<aside id="sidebar" data-preserve-scroll>
+  <header>
+    <a href="/">
+      <img src="{{ assetUrl('images/watermark.svg') }}" alt="KeystoneDB"/>
+    </a>
+  </header>
+
+  <div class="sidebar-buttons">
+
+    <a href="https://github.com/keystonedb/keystone"
+       target="_blank" rel="noopener"
+       class="btn btn--small">
+      SDK - Go
+    </a>
+
+    <a href="https://github.com/keystonedb/keystone/stargazers"
+       target="_blank" rel="noopener"
+       class="btn btn--small">
+      Star
+    </a>
+  </div>
+
+  <button class="search-box"
+          title="Press / to search"
+          aria-label="Search"
+          data-plugin="search">
+    <span>Search</span>
+  </button>
+
+  <nav>
+    {% include 'sidebar.njk' %}
+  </nav>
+</aside>
+
+{# Content #}
+<main>
+  <a id="main-content"></a>
+  <article id="content" class="content{% if toc %} content--with-toc{% endif %}">
+    {% if toc %}
+      <div class="content__toc">
+        <ul>
+          <li class="top"><a href="#">{{ meta.title }}</a></li>
+        </ul>
+      </div>
+    {% endif %}
+
+    <div class="content__body">
+      {% block content %}
+        {{ content | safe }}
+      {% endblock %}
+    </div>
+  </article>
+</main>
+
+<!-- outputs all the icons used on the page -->
+{% getBundle "fontawesome" %}
+</body>
+</html>

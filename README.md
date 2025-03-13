@@ -9,7 +9,7 @@ To get started with development, clone this repo and run the following commands:
 
 ```bash
 npm install
-npm run dev
+npm run start
 ```
 
 This will start a local development server at `http://localhost:8080` with live reloading so you can see your changes

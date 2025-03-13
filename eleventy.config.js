@@ -86,10 +86,14 @@ export default function (eleventyConfig)
 
       results.forEach((result, index) =>
       {
-        const url = path
+        let url = path
           .join('/', path.relative(eleventyConfig.dir.output, result.outputPath))
           .replace(/\\/g, '/') // convert backslashes to forward slashes
           .replace(/\/index.html$/, '/'); // convert trailing /index.html to /
+
+
+        url = eleventyConfig.pathPrefix.replace(/\/$/, '') + url;
+
         const doc = new JSDOM(result.content, {
           // We must set a default URL so links are parsed with a hostname. Let's use a bogus TLD so we can easily
           // identify which ones are internal and which ones are external.

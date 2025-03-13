@@ -149,7 +149,7 @@ export default function (eleventyConfig)
       input:    'pages',     // Default is ./
       includes: '../_includes', // Default is _includes (`input` relative)
       data:     '../_data',     // Default is _data (`input` relative)
-      output:   '../_site'
+      output:   './_site'
     },
 
     // -----------------------------------------------------------------

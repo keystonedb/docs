@@ -45,14 +45,14 @@ export default function (eleventyConfig)
   // Generates a URL relative to the site's root
   eleventyConfig.addNunjucksGlobal('rootUrl', (value = '', absolute = false) =>
   {
-    value = path.join('/', value);
+    value = path.join(`${eleventyConfig.pathPrefix}`, value);
     return absolute ? new URL(value, eleventyConfig.globalData.baseUrl).toString() : value;
   });
 
   // Generates a URL relative to the site's asset directory
   eleventyConfig.addNunjucksGlobal('assetUrl', (value = '', absolute = false) =>
   {
-    value = path.join(`/${assetsDir}`, value);
+    value = path.join(`/${eleventyConfig.pathPrefix}${assetsDir}`, value);
     return absolute ? new URL(value, eleventyConfig.globalData.baseUrl).toString() : value;
   });
 

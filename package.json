@@ -27,7 +27,9 @@
     "build-ghpages": "npx @11ty/eleventy --pathprefix=/docs/",
     "start": "npx @11ty/eleventy --serve --quiet",
     "start-ghpages": "npx @11ty/eleventy --pathprefix=/docs/ --serve --quiet",
-    "deploy": "gh-pages -d _site"
+    "debug": "cross-env DEBUG=Eleventy* npx @11ty/eleventy",
+    "debugstart": "cross-env DEBUG=Eleventy* npx @11ty/eleventy --serve --quiet",
+    "benchmark": "cross-env DEBUG=Eleventy:Benchmark* npx @11ty/eleventy"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.0.1-alpha.4",
@@ -38,9 +40,8 @@
     "markdown-it-ins": "^4.0.0",
     "markdown-it-kbd": "^2.2.2",
     "markdown-it-mark": "^4.0.0",
-    "markdown-it-replace-it": "^1.0.0"
-  },
-  "dependencies": {
-    "@11ty/font-awesome": "^1.0.0-beta.1"
+    "markdown-it-replace-it": "^1.0.0",
+    "@11ty/font-awesome": "^1.0.0-beta.1",
+    "cross-env": "^7.0.3"
   }
 }

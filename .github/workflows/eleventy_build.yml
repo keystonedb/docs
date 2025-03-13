@@ -26,19 +26,12 @@ jobs:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package.json') }}
 
-      - name: Cache Eleventy .cache
-        uses: actions/cache@v3
-        with:
-          path: ./.cache
-          key: ${{ runner.os }}-eleventy-fetch-cache
-
       - run: npm ci # Install dependencies
 
       - run: npm run build # Build the site
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
-        if: github.ref == 'refs/heads/main'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }} # GitHub token automatically generated
           publish_dir: './_site' # Directory to deploy

@@ -110,7 +110,7 @@
     // Wait until idle to fetch the index
     wait(() =>
     {
-      fetch('/docs/assets/search.json')
+      fetch('/assets/search.json')
         .then(res => res.json())
         .then(data =>
         {

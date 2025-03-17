@@ -1,10 +1,14 @@
 <ul>
   <li>
-    <h2>Getting Started</h2>
+    {% for navigation in meta.navigation %}
+    <h2>{{ navigation.title }}</h2>
     <ul>
-      <li>
-        <a href="{{ rootUrl('/getting-started/installation') }}">Installation</a>
-      </li>
+      {% for item in navigation.items %}
+        <li>
+          <a href="{{ rootUrl(item.url) }}">{{ item.name }}</a>
+        </li>
+      {% endfor %}
     </ul>
   </li>
+  {% endfor %}
 </ul>

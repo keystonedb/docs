@@ -4,9 +4,11 @@ import lunr from 'lunr';
 import {JSDOM} from 'jsdom';
 import fontAwesomePlugin from '@11ty/font-awesome';
 import customFlavourMarkdown from './_utilities/markdown.js';
+import getNavigation from './_utilities/navigation.js';
 
 const assetsDir = 'assets';
 let hasBuiltSearchIndex = false;
+const navigation = getNavigation();
 
 /** @param {import('@11ty/eleventy').UserConfig} eleventyConfig */
 export default function (eleventyConfig)
@@ -19,7 +21,8 @@ export default function (eleventyConfig)
   eleventyConfig.addGlobalData('toc', true); // enable the table of contents
   eleventyConfig.addGlobalData('meta', {
     title:       'KeystoneDB',
-    description: 'A Database'
+    description: 'A Database',
+    navigation:  navigation
   });
 
   // -----------------------------------------------------------------
@@ -90,7 +93,6 @@ export default function (eleventyConfig)
           .join('/', path.relative(eleventyConfig.dir.output, result.outputPath))
           .replace(/\\/g, '/') // convert backslashes to forward slashes
           .replace(/\/index.html$/, '/'); // convert trailing /index.html to /
-
 
         url = eleventyConfig.pathPrefix.replace(/\/$/, '') + url;
 

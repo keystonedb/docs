@@ -35,7 +35,12 @@ const getNavigation = () =>
         .replace('.md', '')
         .replace(/\b\w/g, l => l.toUpperCase());
 
-      const url = `/${subdirectory.name}/${file.name.replace('.md', '')}`;
+      let url = `/${subdirectory.name}/${file.name.replace('.md', '')}`;
+      // if filename is the same as the directory name, remove the filename from the url
+      if((file.name.replace('.md', '') === subdirectory.name) || (file.name === 'index.md'))
+      {
+        url = `/${subdirectory.name}`;
+      }
 
       if(!draft)
       {

@@ -35,7 +35,7 @@ const getNavigation = () =>
         .replace('.md', '')
         .replace(/\b\w/g, l => l.toUpperCase());
 
-      const url = `/${subdirectory.name}/${file.name.replace('.md', '.html')}`;
+      const url = `/${subdirectory.name}/${file.name.replace('.md', '')}`;
 
       if(!draft)
       {

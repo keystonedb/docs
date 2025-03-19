@@ -1,8 +1,10 @@
 # App Key Value Store
 
+```proto
     rpc AKVGet(AKVGetRequest) returns (AKVGetResponse){}
     rpc AKVPut(AKVPutRequest) returns (GenericResponse){}
     rpc AKVDel(AKVDelRequest) returns (GenericResponse){}
+```
 
 App Key Value Store allows for Keystone Property types to be stored against a key.
 

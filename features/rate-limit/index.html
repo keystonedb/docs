@@ -148,6 +148,18 @@
       
         <pre><code class="language-proto">rpc RateLimit(RateLimitRequest) returns (RateLimitResponse) {}
 </code></pre>
+<h1>Rate Limits</h1>
+<p>Rate limits allow for quick rate limit setups, which can be used to throttle requests within your application.</p>
+<p>For each request, you must provide a key and transaction ID.</p>
+<p>The <code>key</code> is the unique value for the limiter.
+The <code>transactionID</code> is the unique value for the current action. This stops double reporting of individual events.</p>
+<p>Limits can be setup with a <code>hardLimit</code> which stops writing any transactions after the limit is set.
+<code>rateMinutes</code> allows you to specify the time period the limit is set for, this allows for a sliding window of time to be used.</p>
+<p>Events are written with a 7 day TTL.</p>
+<p>The <code>storeHistorical</code> flag will store a count minute by minute, allowing for charting of the rate limit, and reporting on any overages.</p>
+<p><code>readDistinct</code> is a slightly higher cost operation, but will return the distinct count of transactions for the key, providing more accuracy. Without this flag, duplicate writes to a transaction ID will be counted.</p>
+<h2>Rate Limit Response</h2>
+<p>The response provided contains the current count on the limiter, and a bool for <code>over_limit</code> which if set, will indicate no additional transactions have been written to the limiter.</p>
 
       
     </div>

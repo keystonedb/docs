@@ -164,6 +164,43 @@
 <li><code>StringSet</code> - A unique set of strings</li>
 <li><code>Bytes</code> - Raw bytes</li>
 </ul>
+<h2>Attributes</h2>
+<p>The Keystone attribute works similar to json/yaml attributes, where it contains a comma separated list, where the first part is the name (if left blank, the property name will be generated), and options are provided from that point.</p>
+<p>PaymentCount int64 <code>keystone:&quot;_count_relation:payment&quot;</code></p>
+<ul>
+<li><code>_entity_id</code> - The loaded Keystone ID (Parent)</li>
+<li><code>_child_id</code> - The loaded Keystone ID (Child)</li>
+<li><code>_schema_id</code> - Schema ID</li>
+<li><code>_created</code> - Date/Time Created</li>
+<li><code>_state_change</code> - Date/Time State Change</li>
+<li><code>_state</code> - Current State</li>
+<li><code>_last_update</code> - Date/Time Last Updated</li>
+</ul>
+<h2>Calculated Attributes</h2>
+<ul>
+<li><code>_count_relation</code></li>
+<li><code>_count_descendant</code></li>
+</ul>
+<p>Optionally suffixed with :vendorId[:appId[:key]]</p>
+<p>e.g.</p>
+<pre><code>  _count_relation:vendorId:appId:key
+  _count_relation:vendorId:appId
+  _count_relation:vendorId
+</code></pre>
+<p>Optionally suffixed with :type[:vendorId[:appId[:key]]]</p>
+<ul>
+<li><code>_child_count</code></li>
+<li><code>_child_sum</code></li>
+<li><code>_child_min</code></li>
+<li><code>_child_max</code></li>
+<li><code>_child_avg</code></li>
+</ul>
+<p>e.g.</p>
+<pre><code>  child_count:type:vendorId:appId:key
+  child_count:type:vendorId:appId
+  child_count:type:vendorId
+  child_count:type
+</code></pre>
 
       
     </div>
